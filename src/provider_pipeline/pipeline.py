@@ -265,3 +265,25 @@ def export_client(connection: sqlite3.Connection, config_path: str | Path, outpu
         written.append(path)
     log.info("Exported %s rows for client %s", len(rows), config["name"])
     return written
+
+
+# --------------------------------------------------------------------------- #
+# Profiling
+# --------------------------------------------------------------------------- #
+def profile(connection: sqlite3.Connection) -> dict[str, Any]:
+    """Summarize what is in the database: counts by entity type, specialty, city, state and run."""
+    def rows(sql: str) -> list[dict[str, Any]]:
+        return [dict(row) for row in connection.execute(sql)]
+
+    return {
+        "providers": connection.execute("SELECT count(*) FROM providers").fetchone()[0],
+        "by_entity_type": rows(
+            "SELECT entity_type_code AS entity_type, count(*) AS n FROM providers GROUP BY 1 ORDER BY n DESC"),
+        "by_primary_specialty": rows(
+            "SELECT coalesce(taxonomy_description, '(none)') AS specialty, count(*) AS n "
+            "FROM provider_export GROUP BY 1 ORDER BY n DESC LIMIT 15"),
+        "by_city": rows(
+            "SELECT coalesce(city, '(none)') AS city, coalesce(state, '') AS state, count(*) AS n "
+            "FROM provider_export GROUP BY 1, 2 ORDER BY n DESC LIMIT 15"),
+        "by_run": rows("SELECT run_id, record_count FROM ingestion_runs ORDER BY run_id"),
+    }

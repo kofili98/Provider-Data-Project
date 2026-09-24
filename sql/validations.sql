@@ -61,3 +61,16 @@ SELECT npi FROM keyed
 WHERE (name_key, addr_key, zip_key) IN (
   SELECT name_key, addr_key, zip_key FROM keyed
   GROUP BY name_key, addr_key, zip_key HAVING count(DISTINCT npi) > 1);
+
+-- rule: stale_record | warning
+SELECT npi FROM providers
+WHERE last_updated_date IS NOT NULL AND last_updated_date < date('now', '-5 years');
+
+-- rule: missing_credential | warning
+SELECT npi FROM providers
+WHERE entity_type_code = 'NPI-1' AND (credential IS NULL OR trim(credential) = '');
+
+-- rule: po_box_location | warning
+SELECT DISTINCT npi FROM addresses
+WHERE address_purpose = 'LOCATION'
+  AND (upper(address_1) LIKE 'PO BOX%' OR upper(address_1) LIKE 'P.O. BOX%' OR upper(address_1) LIKE 'P O BOX%');

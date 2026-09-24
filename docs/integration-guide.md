@@ -58,6 +58,9 @@ provider-pipeline --database provider_data.db export --config configs/clients/co
 | `bad_postal_format` | warning | ZIP not 5 digits, 9 digits or ZIP+4 |
 | `inactive_status` | warning | Status other than `A` |
 | `duplicate_addresses` | warning | Same address repeated for one NPI |
+| `stale_record` | warning | Registry record last updated more than 5 years ago |
+| `missing_credential` | warning | Individual (NPI-1) provider with no credential listed |
+| `po_box_location` | warning | LOCATION (practice) address is a PO box |
 | `possible_duplicate_providers` | warning | Different NPIs with the same name and address |
 
 Add a rule by appending a `-- rule: name | error|warning` header and a query that returns `npi`.
@@ -74,7 +77,8 @@ Each file in `configs/clients/` defines `name`, `formats` (csv, json), a SQL `wh
 | `truncated_searches` is not empty | Search hit the 1,200-result ceiling | Split by city, ZIP prefix (`"postal_code":"802*"`) or specialty |
 | Filter seems ignored, results too broad | Misspelled parameter; the API ignores unknown ones | Check parameter names against the API docs |
 | HTTP 429 or 5xx | Rate limiting or an API outage | The pipeline retries; raise `--delay` and re-run |
-| Export has 0 rows | Client `where` too strict, or no data for that area | Query `provider_export` directly and loosen the filter |
+| Export has 0 rows | Client `where` too strict, or the search never matched that specialty | Run `profile` to see specialties and cities actually loaded, then adjust the search or the `where` filter |
+| A search returns 0 records | Criterion misspelled or not the registry's wording (e.g. `Cardiology` vs `Cardiovascular Disease`) | Check `per_search` in the ingest summary; try a wildcard such as `Cardio*` |
 | `taxonomy_code` is empty | Provider has no primary taxonomy | Check the `no_primary_taxonomy` warning |
 | `Unknown export column` | Column not in `provider_export` | Use the field dictionary above |
 | Old database missing new behavior | Schema predates an upgrade | Re-run `init-db` |

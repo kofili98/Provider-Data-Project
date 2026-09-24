@@ -13,6 +13,7 @@ from provider_pipeline.pipeline import (
     fetch_records,
     initialize_database,
     npi_is_valid,
+    profile,
     upsert_records,
     validate,
 )
@@ -211,3 +212,13 @@ def test_export_rejects_unknown_columns(tmp_path):
     config.write_text(json.dumps({"name": "bad", "columns": ["npi", "nope"]}))
     with pytest.raises(ValueError, match="nope"):
         export_client(connection, config, tmp_path / "out")
+
+
+def test_profile_summarizes_the_database(tmp_path):
+    connection = make_db(tmp_path)
+    upsert_records(connection, [fake_record(1000000001), fake_record(1000000002)])
+    result = profile(connection)
+    assert result["providers"] == 2
+    assert result["by_primary_specialty"] == [{"specialty": "Cardiovascular Disease", "n": 2}]
+    assert result["by_city"] == [{"city": "DENVER", "state": "CO", "n": 2}]
+    assert result["by_entity_type"] == [{"entity_type": "NPI-1", "n": 2}]

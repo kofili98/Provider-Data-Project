@@ -23,6 +23,7 @@ pip install -e . pytest
 provider-pipeline --database provider_data.db init-db
 provider-pipeline --database provider_data.db ingest --fixture fixtures/npi-response.json
 provider-pipeline --database provider_data.db validate
+provider-pipeline --database provider_data.db profile
 provider-pipeline --database provider_data.db export --output-dir exports
 pytest
 ```
@@ -39,7 +40,7 @@ provider-pipeline --database provider_data.db ingest --query '[
 ]'
 ```
 
-The ingest summary lists any `truncated_searches` that hit the ceiling. Then run `validate` and `export` as above.
+The ingest summary shows a record count for each search (`per_search`) and lists any `truncated_searches` that hit the ceiling. A search that returns 0 records usually means a criterion is misspelled or does not match the registry's wording; run `profile` to see the specialty names actually stored. Then run `validate` and `export` as above.
 
 ## What the checks do
 
