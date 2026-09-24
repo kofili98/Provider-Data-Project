@@ -1,0 +1,8 @@
+[
+  {"state": "CO", "city": "DENVER", "taxonomy_description": "Cardiovascular Disease"},
+  {"state": "CO", "city": "AURORA", "taxonomy_description": "Cardiovascular Disease"},
+  {"state": "CO", "city": "BOULDER", "taxonomy_description": "Cardiovascular Disease"},
+  {"state": "CO", "city": "DENVER", "taxonomy_description": "Dermatology"},
+  {"state": "CO", "city": "AURORA", "taxonomy_description": "Dermatology"},
+  {"state": "CO", "city": "BOULDER", "taxonomy_description": "Dermatology"}
+]

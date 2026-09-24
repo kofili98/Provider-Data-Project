@@ -1,0 +1,6 @@
+{
+  "name": "colorado-cardiology",
+  "formats": ["json"],
+  "where": "state = 'CO' AND status = 'A' AND taxonomy_description LIKE '%Cardio%'",
+  "columns": ["npi", "provider_name", "credential", "address_1", "city", "postal_code", "telephone", "taxonomy_description"]
+}
