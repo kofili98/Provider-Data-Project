@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS taxonomies (
   npi TEXT NOT NULL REFERENCES providers(npi) ON DELETE CASCADE,
   code TEXT,
   description TEXT,
-  primary_flag TEXT
+  primary_flag TEXT  -- 'Y' or 'N'
 );
 
 CREATE TABLE IF NOT EXISTS ingestion_runs (
@@ -35,10 +35,18 @@ CREATE TABLE IF NOT EXISTS ingestion_runs (
   completed_at TEXT NOT NULL
 );
 
-CREATE VIEW IF NOT EXISTS provider_export AS
+CREATE INDEX IF NOT EXISTS idx_addresses_npi ON addresses(npi);
+CREATE INDEX IF NOT EXISTS idx_taxonomies_npi ON taxonomies(npi);
+
+-- One row per provider: the first LOCATION address and the first primary taxonomy.
+-- Dropped and recreated so re-running init-db upgrades an existing database.
+DROP VIEW IF EXISTS provider_export;
+CREATE VIEW provider_export AS
 SELECT p.npi, p.provider_name, p.credential, p.status,
        a.address_1, a.city, a.state, a.postal_code, a.telephone,
        t.code AS taxonomy_code, t.description AS taxonomy_description
 FROM providers p
-LEFT JOIN addresses a ON a.npi = p.npi AND a.address_purpose = 'LOCATION'
-LEFT JOIN taxonomies t ON t.npi = p.npi AND t.primary_flag = 'Y';
+LEFT JOIN addresses a ON a.id = (
+  SELECT MIN(id) FROM addresses WHERE npi = p.npi AND address_purpose = 'LOCATION')
+LEFT JOIN taxonomies t ON t.id = (
+  SELECT MIN(id) FROM taxonomies WHERE npi = p.npi AND primary_flag = 'Y');
