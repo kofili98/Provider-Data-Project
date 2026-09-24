@@ -1,0 +1,11 @@
+README.md
+pyproject.toml
+src/provider_data_pipeline.egg-info/PKG-INFO
+src/provider_data_pipeline.egg-info/SOURCES.txt
+src/provider_data_pipeline.egg-info/dependency_links.txt
+src/provider_data_pipeline.egg-info/entry_points.txt
+src/provider_data_pipeline.egg-info/top_level.txt
+src/provider_pipeline/__init__.py
+src/provider_pipeline/cli.py
+src/provider_pipeline/pipeline.py
+tests/test_pipeline.py

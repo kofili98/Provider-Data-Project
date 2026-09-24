@@ -1,0 +1,42 @@
+{
+  "results": [
+    {
+      "number": "1234567893",
+      "enumeration_type": "NPI-1",
+      "basic": {
+        "name": "EXAMPLE MEDICAL GROUP",
+        "credential": "MD",
+        "enumeration_date": "2020-01-01",
+        "last_updated": "2024-01-01",
+        "status": "A"
+      },
+      "addresses": [
+        {
+          "address_purpose": "LOCATION",
+          "address_1": "1 MAIN STREET",
+          "city": "BOSTON",
+          "state": "MA",
+          "postal_code": "02108",
+          "telephone_number": "6175550100"
+        }
+      ],
+      "taxonomies": [
+        {
+          "code": "207Q00000X",
+          "desc": "Family Medicine",
+          "primary": "Y"
+        }
+      ]
+    },
+    {
+      "number": "1234567894",
+      "enumeration_type": "NPI-2",
+      "basic": {
+        "name": "",
+        "status": "A"
+      },
+      "addresses": [],
+      "taxonomies": []
+    }
+  ]
+}

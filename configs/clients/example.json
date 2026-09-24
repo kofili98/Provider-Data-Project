@@ -1,0 +1,18 @@
+{
+  "name": "example-providers",
+  "formats": ["csv", "json"],
+  "where": "status = 'A' AND provider_name IS NOT NULL AND trim(provider_name) <> '' AND address_1 IS NOT NULL",
+  "columns": [
+    "npi",
+    "provider_name",
+    "credential",
+    "status",
+    "address_1",
+    "city",
+    "state",
+    "postal_code",
+    "telephone",
+    "taxonomy_code",
+    "taxonomy_description"
+  ]
+}

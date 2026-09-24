@@ -1,0 +1,5 @@
+Metadata-Version: 2.4
+Name: provider-data-pipeline
+Version: 0.1.0
+Summary: Ingest, validate, and export NPI Registry provider records.
+Requires-Python: >=3.11
