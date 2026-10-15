@@ -211,6 +211,6 @@ EXEC dbo.usp_GetProviderQualitySummary @Specialty = '(All)', @City = '(All)', @S
 
 ## Documentation Index
 
-* **[docs/reports\_specs.md](https://www.google.com/search?q=docs%2Freports_specs.md)**: Report Requirements Specification detailing stakeholder personas, monthly SLAs, parameter definitions, and remediation workflows.
-* **[docs/integration-guide.md](https://www.google.com/search?q=docs%2Fintegration-guide.md)**: Full Technical Integration Guide covering T-SQL type mappings, index design, stored procedure schemas, and environment troubleshooting.
-* **[docs/sample-run.md](https://www.google.com/search?q=docs%2Fsample-run.md)**: Empirical sample run log and baseline verification audit.
+* **[docs/reports\_specs.md](https://github.com/kofili98/Provider-Data-Project/blob/main/docs/reports-specs.md)**: Report Requirements Specification detailing stakeholder personas, monthly SLAs, parameter definitions, and remediation workflows.
+* **[docs/integration-guide.md](https://github.com/kofili98/Provider-Data-Project/blob/main/docs/integration-guide.md)**: Full Technical Integration Guide covering T-SQL type mappings, index design, stored procedure schemas, and environment troubleshooting.
+* **[docs/sample-run.md](https://github.com/kofili98/Provider-Data-Project/blob/main/docs/sample-run.md)**: Empirical sample run log and baseline verification audit.
