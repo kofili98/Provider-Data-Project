@@ -6,3 +6,13 @@ __pycache__/
 *.db
 exports/
 data/raw/
+
+# Visual Studio & SSRS temp/lock files
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.rptproj.rsuser
+bin/
+obj/
