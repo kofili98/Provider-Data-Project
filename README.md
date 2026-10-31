@@ -338,11 +338,10 @@ Cross-Database Drift:            0.000% Variance (SQLite vs. SQL Server 2025)
 
 ## Documentation Index
 
-* **[docs/product-documentation.md](https://www.google.com/search?q=docs/product-documentation.md)**: Complete, executive-ready product documentation and architectural case study designed for public technical publication.
-* **[docs/provider\_pipeline\_product\_documentation.pdf](https://www.google.com/search?q=docs/provider_pipeline_product_documentation.pdf)**: 7-page publication-grade PDF whitepaper formatted with embedded charts, audit waterfalls, and complete test matrices.
-* **[docs/reports\_specs.md](https://www.google.com/search?q=docs/reports_specs.md)**: Report Requirements Specification detailing stakeholder personas, monthly SLAs, parameter definitions, and remediation workflows.
-* **[docs/integration-guide.md](https://www.google.com/search?q=docs/integration-guide.md)**: Full Technical Integration Guide covering T-SQL type mappings, index design, stored procedure schemas, and environment troubleshooting.
-* **[docs/sample-run.md](https://www.google.com/search?q=docs/sample-run.md)**: Empirical sample run log and baseline verification audit.
+* **[docs/product-documentation.md](https://www.google.com/search?q=docs/product-documentation.md)**:7-page whitepaper with embedded charts, audit waterfalls, and complete test matrices.
+* **[docs/reports\_specs.md](https://github.com/kofili98/Provider-Data-Project/blob/main/docs/reports-specs.md)**: Report Requirements Specification detailing stakeholder personas, monthly SLAs, parameter definitions, and remediation workflows.
+* **[docs/integration-guide.md](https://github.com/kofili98/Provider-Data-Project/blob/main/docs/integration-guide.md)**: Full Technical Integration Guide covering T-SQL type mappings, index design, stored procedure schemas, and environment troubleshooting.
+* **[docs/sample-run.md](https://github.com/kofili98/Provider-Data-Project/blob/main/docs/sample-run.md)**: Empirical sample run log and baseline verification audit.
 
 ---
 
