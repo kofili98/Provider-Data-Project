@@ -334,7 +334,6 @@ Cross-Database Drift:            0.000% Variance (SQLite vs. SQL Server 2025)
 
 ## Documentation Index
 
-* **[docs/product-documentation.md](docs/product-documentation.md)**: Architecture guide and schema documentation.
 * **[docs/provider_pipeline_product_documentation.pdf](docs/provider_pipeline_product_documentation.pdf)**: Whitepaper detailing data modeling, audit waterfalls, and validation logic.
 * **[docs/reports-specs.md](docs/reports-specs.md)**: Report Requirements Specification detailing stakeholder personas, monthly SLAs, parameter definitions, and remediation workflows.
 * **[docs/integration-guide.md](docs/integration-guide.md)**: Technical Integration Guide covering T-SQL type mappings, index design, stored procedure schemas, and environment troubleshooting.
