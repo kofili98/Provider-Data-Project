@@ -62,9 +62,7 @@ An end-to-end healthcare data engineering, in-database quality validation, and b
 ## Strategic Product Narrative & Governance Context
 
 ### The Healthcare Directory Problem
-In healthcare operations, provider directory accuracy is a key regulatory, operational, and patient-care priority. Under the federal **No Surprises Act (NSA)** and **CMS Interoperability and Patient Access Rules**, health plans, hospital networks, and clearinghouses face statutory penalties, billing dispute liabilities, and compliance scrutiny if provider networks publish outdated, inaccurate, or phantom provider information. Federal standards mandate that health plans verify provider directory details regularly and apply timely corrections.
-
-Public healthcare registry data—specifically the federal **CMS NPI Registry**—is self-reported by clinical staff and organizations, updated irregularly, and often contains stale contact information, malformed postal codes, PO Box service addresses, and omitted medical credentials.
+Provider directory accuracy is a regulatory and operational priority for health plans and for the providers who supply their data. Under the federal No Surprises Act, health plans must verify provider directory information at least every 90 days, reflect provider-submitted updates within two business days, and remove providers whose information cannot be verified. Providers and facilities share responsibility for submitting accurate updates, and CMS interoperability rules add directory requirements for certain plan types. This project does not measure compliance with those rules. It applies a data-quality lens to a public registry, flagging records that are structurally invalid, incomplete, or old enough to warrant review.
 
 ### The Strategic Product Reframe
 Traditional data pipelines treat public registries simply as an ingestion task: *"Can we pull records from the API and dump them into our database?"*
