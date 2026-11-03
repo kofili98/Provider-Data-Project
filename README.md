@@ -4,6 +4,12 @@ An end-to-end healthcare data engineering, in-database quality validation, and b
 
 ---
 
+> **At a glance:** 603 Colorado cardiology and dermatology providers ingested from the CMS NPI Registry. 14 validation rules, a Luhn-checksum UDF in T-SQL, and a quality gate that suppresses fatal-error records from vendor extracts. Run it offline in about five minutes with Track A below.
+
+![SSRS Quality Summary Dashboard](images/SSRS_report.JPG)
+
+---
+
 ## Architecture & Data Flow
 
 ```
@@ -160,6 +166,9 @@ Provider-Data-Project/
 │
 ├── fixtures/
 │   └── npi-response.json              # Mock API payload for offline testing
+│
+├── images/
+│   └── SSRS_report.jpg                # SSRS Quality Summary Dashboard screenshot
 │
 ├── sql/
 │   ├── schema.sql                     # Legacy Phase 1 SQLite schema DDL
